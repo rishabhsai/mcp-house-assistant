@@ -72,12 +72,5 @@ python -m unittest discover tests
 ```
 
 ## 📝 Notes
-- The old FastAPI server (`server.py`) is deprecated and has been removed.
 - The CLI will always use your real API keys from `.env` for tool calls, regardless of LLM output.
 - You can add more tools by following the `_tool.py` pattern and adding a `main` function.
-
-## 🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📝 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
