@@ -45,7 +45,8 @@ The server will start at `http://localhost:8000/`.
 **Example:**
 ```bash
 curl -X POST "http://localhost:8000/market_recap" -H "Content-Type: application/json" -d '{"date":"2024-06-01","markets":"^GSPC,^IXIC"}'
-
+```
+```bash
 curl -X POST "http://localhost:8000/weather" -H "Content-Type: application/json" -d '{"location":"London","api_key":"YOUR_API_KEY"}'
 ```
 
