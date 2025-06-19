@@ -1,6 +1,41 @@
 # MCP House Assistant
 
-A modular AI-powered assistant that uses OpenAI to interpret natural language queries and route them to the correct tool (market recap or weather) via a command-line interface.
+A modular AI-powered assistant that uses OpenAI to interpret natural language queries and route them to the correct tool (market recap or weather).
+
+## 🚦 Usage Modes
+
+- **CLI Tool:** Run queries directly from your terminal.
+- **HTTP API Endpoint:** Start a server and send queries via HTTP POST requests.
+
+---
+
+## 🏃 Quick Start
+
+### CLI Tool
+Run the CLI and enter your query:
+```bash
+python mcp_server.py "What's the weather in London?"
+```
+Or just run:
+```bash
+python mcp_server.py
+```
+And enter your query when prompted.
+
+### HTTP API Endpoint
+1. Start the server:
+   ```bash
+   uvicorn mcp_api_server:app --reload
+   ```
+2. Send a POST request to `/query`:
+   ```bash
+   curl -X POST "http://localhost:8000/query" \
+     -H "Content-Type: application/json" \
+     -d '{"query": "What's the weather in London?"}'
+   ```
+   You will receive a JSON response with the result.
+
+---
 
 ## 🚀 How It Works
 - **Natural Language Interface:** Ask questions like "What's the weather in London?" or "Give me a market recap for today".
@@ -36,41 +71,5 @@ A modular AI-powered assistant that uses OpenAI to interpret natural language qu
    ```
    Replace with your actual API keys.
 
-## 🏃 Usage
-Run the MCP CLI and enter your query:
-```bash
-python mcp_server.py "What's the weather in London?"
-```
-Or just run:
-```bash
-python mcp_server.py
-```
-And enter your query when prompted.
-
-### Example Output
-```json
-{
-  "result": {
-    "location": "London, City of London, Greater London, United Kingdom",
-    "current": {
-      "temperature": 31.1,
-      "temperature_unit": "°C",
-      "feels_like": 31.5,
-      "humidity": 31,
-      "description": "Sunny",
-      ...
-    },
-    "forecast": [ ... ]
-  }
-}
-```
-
 ## 🧪 Running Tests
-Tests are located in the `tests/` directory. To run all tests:
-```bash
-python -m unittest discover tests
-```
-
-## 📝 Notes
-- The CLI will always use your real API keys from `.env` for tool calls, regardless of LLM output.
-- You can add more tools by following the `_tool.py` pattern and adding a `main` function.
+Tests are located in the `
